@@ -1,0 +1,255 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZSM_PROYECTOFIN_SORJUELA_SRV/$metadata">
+        <edmx:Include Namespace="ZSM_PROYECTOFIN_SORJUELA_SRV" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA/idcategoria">
+                <Annotation Term="Common.Label" String="{@i18n>idcategoria}" />
+                <Annotation Term="Common.Text" Path="nombre" />
+            </Annotations>
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA/nombre">
+                <Annotation Term="Common.Label" String="{@i18n>nombre}" />
+            </Annotations>
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA/descripcion">
+                <Annotation Term="Common.Label" String="{@i18n>Descripcion}" />
+            </Annotations>
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO/idProducto">
+                <Annotation Term="Common.Label" String="{@i18n>idProducto}" />
+            </Annotations>
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO/nombre">
+                <Annotation Term="Common.Label" String="{@i18n>Nombre}" />
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory" />
+            </Annotations>
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO/precio">
+                <Annotation Term="Common.Label" String="{@i18n>precio}" />
+            </Annotations>
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO/moneda">
+                <Annotation Term="Common.Label" String="{@i18n>moneda}" />
+            </Annotations>
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO/estado">
+                <Annotation Term="Common.Label" String="{@i18n>estado}" />
+            </Annotations>
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.HTcurc/Waers">
+                <Annotation Term="Common.Label" String="{@i18n>cdigoDeMoneda}" />
+            </Annotations>
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.HTcurc/Ltext">
+                <Annotation Term="Common.Label" String="{@i18n>descripcin}" />
+            </Annotations>
+
+            <!--           <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA/nombre">
+                <Annotation Term="Capabilities.SearchRestrictions">
+                    <Record Type="Capabilities.SearchRestrictionsType">
+                        <PropertyValue Property="Searchable" Bool="true" />
+                    </Record>
+                </Annotation>
+            </Annotations> -->
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>nombre</PropertyPath>
+                        <PropertyPath>descripcion</PropertyPath>
+                    </Collection>
+                </Annotation>
+
+                <!-- este es para ponerle negrulla  a la columna -->
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>idcategoria</PropertyPath>
+                    </Collection>
+                </Annotation>
+
+                <!-- aqui es para ponerle nombre a la tabla y saber cuantos row hay -->
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>categoria}" />
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>categorias}" />
+                        <!-- agregar titulo y descripcion en el objeb page-->
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="nombre" />
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="descripcion" />
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- line ietm las columnas que se van a ver  -->
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="idcategoria" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="descripcion" />
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="estado" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="fechaCreacion" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <!-- faceta para mostrar los campos -->
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Identification#Identification" />
+                            <PropertyValue Property="Label" String="{@i18n>informacionDeCategorias}" />
+                        </Record>
+
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="PRODUCTOSet/@UI.LineItem" />
+                            <PropertyValue Property="Label" String="{@i18n>productos}" />
+                        </Record>
+                        <!-- IdentificationProductos -->
+                    </Collection>
+                </Annotation>
+                <!-- mostrar los campos en el objeb page y en l crear -->
+                <Annotation Term="UI.Identification" Qualifier="Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="idcategoria" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="nombre" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="descripcion" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO/moneda">
+                <Annotation Term="Common.ValueListForValidation" String="" />
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="Label" String="{@i18n>seleccionarMoneda}" />
+                        <!-- El EntitySet que acabas de crear en SEGW -->
+                        <PropertyValue Property="CollectionPath" String="HTcurcSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <!-- InOut: Lo que el usuario elige en la lista se guarda en el campo 'moneda' -->
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="moneda" />
+                                    <PropertyValue Property="ValueListProperty" String="Waers" />
+                                </Record>
+                                <!-- DisplayOnly: Solo para que el usuario vea la descripción (Euro, Dólar, etc.) -->
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Ltext" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO">
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>productos}" />
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>productos}" />
+                        <!-- agregar titulo y descripcion en el objeb page-->
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="nombre" />
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="precio" />
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Identification#IdentificationProductos" />
+                            <PropertyValue Property="Label" String="{@i18n>informacionProducto}" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="idProducto" />
+                            <PropertyValue Property="Label" String="{@i18n>productoId}" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="nombre" />
+                            <PropertyValue Property="Label" String="{@i18n>Nombre}" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="precio" />
+                            <PropertyValue Property="Label" String="{@i18n>precio}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="estado" />
+                            <PropertyValue Property="Label" String="{@i18n>estado}" />
+                            <PropertyValue Property="Criticality" Path="estadoColor" />
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithIcon" />
+                        </Record>
+
+                        <!--          <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="DETALLE_ORDENSet/fechaCreacion" />
+                            <PropertyValue Property="Label" String="{@i18n>fechaOrden}" />
+                        </Record> -->
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Identification" Qualifier="IdentificationProductos">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="idProducto" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="idCategoria" />
+                            <PropertyValue Property="Label" String="{@i18n>idCategoria}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="nombre" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="precio" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="moneda" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="estado" />
+                            <PropertyValue Property="Criticality" Path="estadoColor" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
