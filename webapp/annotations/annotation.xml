@@ -25,6 +25,9 @@
             <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA/descripcion">
                 <Annotation Term="Common.Label" String="{@i18n>Descripcion}" />
             </Annotations>
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA/cantidad">
+                <Annotation Term="Common.Label" String="{@i18n>Cantidad}" />
+            </Annotations>
 
             <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO/idProducto">
                 <Annotation Term="Common.Label" String="{@i18n>idProducto}" />
@@ -52,21 +55,123 @@
             <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.HTcurc/Ltext">
                 <Annotation Term="Common.Label" String="{@i18n>descripcin}" />
             </Annotations>
-
-            <!--           <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA/nombre">
-                <Annotation Term="Capabilities.SearchRestrictions">
-                    <Record Type="Capabilities.SearchRestrictionsType">
-                        <PropertyValue Property="Searchable" Bool="true" />
+            <!-- FILTRO PERSONALIZADO -->
+            <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA/nombre">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="CATEGORIASet" />
+                        <!-- Tu EntitySet de búsqueda -->
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <!-- Parámetro de salida: el que se escribe en el filtro al seleccionar -->
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="nombre" />
+                                    <PropertyValue Property="ValueListProperty" String="nombre" />
+                                </Record>
+                                <!-- Parámetro visual: descripción adicional en la lista -->
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="descripcion" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
                     </Record>
                 </Annotation>
-            </Annotations> -->
+            </Annotations>
 
             <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA">
+                <Annotation Term="UI.SelectionVariant" Qualifier="Todos">
+                    <Record>
+                        <PropertyValue Property="Text" String="Todas las estados" />
+                        <!-- Al no poner SelectOptions, el sistema trae el EntitySet sin filtros -->
+                    </Record>
+                </Annotation>
+                <!-- Variante para Categorías Activas -->
+                <Annotation Term="UI.SelectionVariant" Qualifier="Activos">
+                    <Record>
+                        <PropertyValue Property="Text" String="Solo Activos" />
+                        <PropertyValue Property="SelectOptions">
+                            <Collection>
+                                <Record Type="UI.SelectOptionType">
+                                    <PropertyValue Property="PropertyName" PropertyPath="estado" />
+                                    <PropertyValue Property="Ranges">
+                                        <Collection>
+                                            <Record Type="UI.SelectionRangeType">
+                                                <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I" />
+                                                <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ" />
+                                                <PropertyValue Property="Low" String="A" />
+                                                <!-- Tu código de Activo -->
+                                            </Record>
+                                        </Collection>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- Variante para Categorías Inactivas -->
+                <Annotation Term="UI.SelectionVariant" Qualifier="Inactivos">
+                    <Record>
+                        <PropertyValue Property="Text" String="Inactivos" />
+                        <PropertyValue Property="SelectOptions">
+                            <Collection>
+                                <Record Type="UI.SelectOptionType">
+                                    <PropertyValue Property="PropertyName" PropertyPath="estado" />
+                                    <PropertyValue Property="Ranges">
+                                        <Collection>
+                                            <Record Type="UI.SelectionRangeType">
+                                                <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I" />
+                                                <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ" />
+                                                <PropertyValue Property="Low" String="I" />
+                                                <!-- Tu código de Inactivo -->
+                                            </Record>
+                                        </Collection>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
                 <Annotation Term="UI.SelectionFields">
                     <Collection>
                         <PropertyPath>nombre</PropertyPath>
-                        <PropertyPath>descripcion</PropertyPath>
                     </Collection>
+                </Annotation>
+                <Annotation Term="UI.DataPoint">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="cantidad" />
+                        <PropertyValue Property="MaximumValue" Decimal="1000" />
+                        <PropertyValue Property="MinimumValue" Decimal="0" />
+                        <PropertyValue Property="CriticalityCalculation">
+                            <Record Type="UI.CriticalityCalculationType">
+                                <PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Maximize" />
+                                <PropertyValue Property="ToleranceRangeHighValue" Decimal="1000" />
+                                <PropertyValue Property="ToleranceRangeLowValue" Decimal="0" />
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.Chart">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="Title" String="Distribución por Estado" />
+                        <PropertyValue Property="Description" String="Categorías según su estado actual" />
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut" />
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>cantidad</PropertyPath>
+                                <!-- Ver nota abajo sobre este campo -->
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
                 </Annotation>
 
                 <!-- este es para ponerle negrulla  a la columna -->
@@ -104,6 +209,10 @@
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="descripcion" />
                         </Record>
+                        <Record Type="UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Label" String="Cantidad" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Chart" />
+                        </Record>
 
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="estado" />
@@ -128,6 +237,13 @@
                         <!-- IdentificationProductos -->
                     </Collection>
                 </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.Chart" />
+                        </Record>
+                    </Collection>
+                </Annotation>
                 <!-- mostrar los campos en el objeb page y en l crear -->
                 <Annotation Term="UI.Identification" Qualifier="Identification">
                     <Collection>
@@ -139,6 +255,9 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="descripcion" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="cantidad" />
                         </Record>
                     </Collection>
                 </Annotation>

@@ -9,6 +9,7 @@
                 <Property Name="idcategoria" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="descripcion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="cantidad" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>

@@ -111,47 +111,61 @@
       "considerAnalyticalParameters": true,
       "showDraftToggle": false
     },
-    "pages": {
-      "ListReport|CATEGORIASet": {
-        "entitySet": "CATEGORIASet",
-        "component": {
-          "name": "sap.suite.ui.generic.template.ListReport",
-          "list": true,
-          "settings": {
-            "condensedTableLayout": true,
-            "smartVariantManagement": true,
-            "enableTableFilterInPageVariant": true,
-            "filterSettings": {
-              "dateSettings": {
-                "useDateRange": true
-              }
-            },
-            "tableSettings": {
-              "type": "ResponsiveTable"
-            }
+   "pages": {
+  "ListReport|CATEGORIASet": {
+    "entitySet": "CATEGORIASet",
+    "component": {
+      "name": "sap.suite.ui.generic.template.ListReport",
+      "list": true,
+      "settings": {
+        "condensedTableLayout": true,
+        "smartVariantManagement": true,
+        "enableTableFilterInPageVariant": true,
+        "filterSettings": {
+          "dateSettings": {
+            "useDateRange": true
           }
         },
+        "tableSettings": {
+          "type": "ResponsiveTable"
+        },
+        "quickVariantSelection": {
+          "variants": {
+            "0": {
+              "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Todos"
+            },
+            "1": {
+              "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Activos"
+            },
+            "2": {
+              "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Inactivos"
+            }
+          }
+        }
+      }
+    },
+    "pages": {
+      "ObjectPage|CATEGORIASet": {
+        "entitySet": "CATEGORIASet",
+        "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+        "component": {
+          "name": "sap.suite.ui.generic.template.ObjectPage"
+        },
         "pages": {
-          "ObjectPage|CATEGORIASet": {
-            "entitySet": "CATEGORIASet",
+          "ObjectPage|PRODUCTOSet": {
+            "navigationProperty": "PRODUCTOSet",
+            "entitySet": "PRODUCTOSet",
             "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
             "component": {
               "name": "sap.suite.ui.generic.template.ObjectPage"
-            },
-            "pages": {
-              "ObjectPage|PRODUCTOSet": {
-                "navigationProperty": "PRODUCTOSet",
-                "entitySet": "PRODUCTOSet",
-                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
-                "component": {
-                  "name": "sap.suite.ui.generic.template.ObjectPage"
-                }
-              }
             }
           }
         }
       }
     }
+  }
+}
+
   },
   "sap.fiori": {
     "registrationIds": [],
