@@ -101,6 +101,22 @@
       "config": {},
       "routes": [],
       "targets": {}
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.viewExtensions": {
+          "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+            "AfterFacet|CATEGORIASet|PRODUCTOSet::com.sap.vocabularies.UI.v1.LineItem": {
+              "className": "sap.ui.core.Fragment",
+              "fragmentName": "project5.ext.fragment.SideContent",
+              "type": "XML",
+              "sap.ui.generic.app": {
+                "title": "Información de Ayuda"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "sap.ui.generic.app": {
@@ -111,7 +127,7 @@
       "considerAnalyticalParameters": true,
       "showDraftToggle": false
     },
-   "pages": {
+ "pages": {
   "ListReport|CATEGORIASet": {
     "entitySet": "CATEGORIASet",
     "component": {
@@ -149,7 +165,28 @@
         "entitySet": "CATEGORIASet",
         "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
         "component": {
-          "name": "sap.suite.ui.generic.template.ObjectPage"
+          "name": "sap.suite.ui.generic.template.ObjectPage",
+          "settings": {
+            "sections": {
+              "CustomSideContent": {
+                "id": "idSideContentSection",
+                "title": "Panel de Ayuda",
+                "type": "XMLFragment",
+                "fragmentName": "TU_NAMESPACE.ext.fragment.SideContent",
+                "position": {
+                  "anchor": "GeneralInformation",
+                  "placement": "After"
+                }
+              }
+            },
+            "actions": {
+              "ToggleSide": {
+                "id": "idToggleSideButton",
+                "text": "Ver Ayuda",
+                "press": "project5.ext.controller.SideContent.onToggleSideContent"
+              }
+            }
+          }
         },
         "pages": {
           "ObjectPage|PRODUCTOSet": {
@@ -172,3 +209,4 @@
     "archeType": "transactional"
   }
 }
+

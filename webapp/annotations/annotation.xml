@@ -79,6 +79,24 @@
             </Annotations>
 
             <Annotations Target="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA">
+                <Annotation Term="UI.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="descripcion" />
+                                    <PropertyValue Property="Descending" Bool="false" />
+                                    <!-- false para Ascendente -->
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
                 <Annotation Term="UI.SelectionVariant" Qualifier="Todos">
                     <Record>
                         <PropertyValue Property="Text" String="Todas las estados" />
@@ -203,6 +221,11 @@
                 <!-- line ietm las columnas que se van a ver  -->
                 <Annotation Term="UI.LineItem">
                     <Collection>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Cambiar a Estado a inactivo" />
+                            <PropertyValue Property="Action" String="ZSM_PROYECTOFIN_SORJUELA_SRV.ZSM_PROYECTOFIN_SORJUELA_SRV_Entities/CambiarEstadoI" />
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated" />
+                        </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="idcategoria" />
                         </Record>

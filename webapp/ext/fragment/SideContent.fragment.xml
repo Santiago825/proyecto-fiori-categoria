@@ -1,0 +1,80 @@
+<core:FragmentDefinition 
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core" 
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    
+    <layout:DynamicSideContent 
+        id="idSideContentLayout" 
+        sideContentPosition="End" 
+        sideContentFallDown="BelowM" 
+        containerQuery="true"
+        showSideContent="true">
+        
+        <!-- CONTENIDO PRINCIPAL (Izquierda) -->
+        <layout:mainContent>
+            <VBox id="idMainVBoxContainer" class="sapUiSmallMargin">
+                <Title id="idMainTitle" text="Información Detallada" titleStyle="H2" class="sapUiSmallMarginBottom" />
+                
+                <f:SimpleForm id="idMainForm" editable="false" layout="ResponsiveLayout">
+                    <f:content>
+                        <core:Title id="idTitleGeneral" text="Datos Generales" />
+                        
+                        <Label id="idLblNombre" text="Nombre de Categoría" />
+                        <Text id="idTxtNombre" text="{nombre}" />
+                        
+                        <Label id="idLblDesc" text="Descripción" />
+                        <Text id="idTxtDesc" text="{descripcion}" />
+
+                        <!-- NUEVO: CAMPO DE ESTADO CON COLOR -->
+                        <Label id="idLblEstado" text="Estado Actual" />
+                        <ObjectStatus id="idObjEstado" 
+                            text="{= ${estado} === 'A' ? 'Activo' : 'Inactivo' }" 
+                            state="{= ${estado} === 'A' ? 'Success' : 'Error' }" 
+                            inverted="true" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </layout:mainContent>
+
+        <!-- CONTENIDO LATERAL (Derecha) -->
+        <layout:sideContent>
+            <VBox id="idSideVBoxContainer" class="sapUiContentPadding">
+                <HBox id="idHeaderSide" alignItems="Center" class="sapUiSmallMarginBottom">
+                    <core:Icon id="idIconSide" src="sap-icon://message-information" color="#1C4D6F" size="1.5rem" class="sapUiSmallMarginEnd" />
+                    <Title id="idSideTitle" text="Centro de Ayuda" titleStyle="H4" />
+                </HBox>
+
+                <IconTabBar id="idSideIconTabBar" expandable="false" upperCase="true">
+                    <items>
+                        <IconTabFilter id="idHelpTab" icon="sap-icon://hint" text="Ayuda">
+                            <VBox id="idVBoxHelp" class="sapUiSmallMarginTop">
+                                <!-- NUEVO: MENSAJE DINÁMICO SEGÚN ESTADO -->
+                                <MessageStrip id="idMsgStripStatus"
+                                    text="{= ${estado} === 'A' ? 'La categoría está operativa.' : 'Atención: Esta categoría se encuentra inactiva.' }"
+                                    type="{= ${estado} === 'A' ? 'Success' : 'Error' }"
+                                    showIcon="true"
+                                    class="sapUiSmallMarginBottom" />
+
+                                <Label id="idLblInstr" text="Instrucciones:" design="Bold" />
+                                <Text id="idInstrText" text="Revise los datos de auditoría en la pestaña contigua para verificar el historial." />
+                            </VBox>
+                        </IconTabFilter>
+
+                        <IconTabFilter id="idLogTab" icon="sap-icon://history" text="Auditoría">
+                            <VBox id="idVBoxLog" class="sapUiSmallMarginTop">
+                                <Label id="idLblCreado" text="Registro Creado" design="Bold" />
+                                <Text id="idLogUser" text="Usuario: Administrador" />
+                                <Text id="idLogDate" text="Fecha: {fechaCreacion}" class="sapUiSmallMarginBottom" />
+                                
+                                <Label id="idLblMod" text="Última Modificación" design="Bold" />
+                                <Text id="idModDate" text="{fechaModificacion}" />
+                            </VBox>
+                        </IconTabFilter>
+                    </items>
+                </IconTabBar>
+            </VBox>
+        </layout:sideContent>
+
+    </layout:DynamicSideContent>
+</core:FragmentDefinition>

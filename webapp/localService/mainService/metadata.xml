@@ -1,188 +1,190 @@
-<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
     <edmx:DataServices m:DataServiceVersion="2.0">
-        <Schema Namespace="ZSM_PROYECTOFIN_SORJUELA_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZSM_PROYECTOFIN_SORJUELA_SRV" xml:lang="en" sap:schema-version="1">
             <EntityType Name="CATEGORIA" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="idcategoria"/>
+                    <PropertyRef Name="idcategoria" />
                 </Key>
-                <Property Name="idcategoria" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="descripcion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="cantidad" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="PRODUCTOSet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIATOPRODUCTO" FromRole="FromRole_CATEGORIATOPRODUCTO" ToRole="ToRole_CATEGORIATOPRODUCTO"/>
+                <Property Name="idcategoria" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" />
+                <Property Name="descripcion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" />
+                <Property Name="cantidad" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="PRODUCTOSet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIATOPRODUCTO" FromRole="FromRole_CATEGORIATOPRODUCTO" ToRole="ToRole_CATEGORIATOPRODUCTO" />
             </EntityType>
             <EntityType Name="PRODUCTO" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="idProducto"/>
+                    <PropertyRef Name="idProducto" />
                 </Key>
-                <Property Name="idProducto" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="idCategoria" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="precio" Type="Edm.String" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="moneda" Type="Edm.String" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="estado" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="estadoColor" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="DETALLE_ORDENSet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTOTODETALLEORDEN" FromRole="FromRole_PRODUCTOTODETALLEORDEN" ToRole="ToRole_PRODUCTOTODETALLEORDEN"/>
+                <Property Name="idProducto" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="idCategoria" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="precio" Type="Edm.String" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="moneda" Type="Edm.String" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="estado" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="estadoColor" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="DETALLE_ORDENSet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTOTODETALLEORDEN" FromRole="FromRole_PRODUCTOTODETALLEORDEN" ToRole="ToRole_PRODUCTOTODETALLEORDEN" />
             </EntityType>
             <EntityType Name="PUNTO_VENTA" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="idPVenta"/>
+                    <PropertyRef Name="idPVenta" />
                 </Key>
-                <Property Name="idPVenta" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="direccion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="ORDEN_COMPRASet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.PUNTOVENTATOORDEN" FromRole="FromRole_PUNTOVENTATOORDEN" ToRole="ToRole_PUNTOVENTATOORDEN"/>
+                <Property Name="idPVenta" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="direccion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="ORDEN_COMPRASet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.PUNTOVENTATOORDEN" FromRole="FromRole_PUNTOVENTATOORDEN" ToRole="ToRole_PUNTOVENTATOORDEN" />
             </EntityType>
             <EntityType Name="CLIENTE" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="idcliente"/>
+                    <PropertyRef Name="idcliente" />
                 </Key>
-                <Property Name="idcliente" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="correo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="telefono" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="direccion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="DETALLE_ORDENSet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.CLIENTETOORDEN" FromRole="FromRole_CLIENTETOORDEN" ToRole="ToRole_CLIENTETOORDEN"/>
+                <Property Name="idcliente" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="correo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="telefono" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="direccion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="DETALLE_ORDENSet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.CLIENTETOORDEN" FromRole="FromRole_CLIENTETOORDEN" ToRole="ToRole_CLIENTETOORDEN" />
             </EntityType>
             <EntityType Name="ORDEN_COMPRA" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="idOrden"/>
+                    <PropertyRef Name="idOrden" />
                 </Key>
-                <Property Name="idOrden" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaDia" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="idCliente" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="idPVenta" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="DETALLE_ORDENSet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDENTODETALLEORDEN" FromRole="FromRole_ORDENTODETALLEORDEN" ToRole="ToRole_ORDENTODETALLEORDEN"/>
+                <Property Name="idOrden" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaDia" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="idCliente" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="idPVenta" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="DETALLE_ORDENSet" Relationship="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDENTODETALLEORDEN" FromRole="FromRole_ORDENTODETALLEORDEN" ToRole="ToRole_ORDENTODETALLEORDEN" />
             </EntityType>
             <EntityType Name="DETALLE_ORDEN" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="idDOrden"/>
-                    <PropertyRef Name="idOrden"/>
-                    <PropertyRef Name="idProducto"/>
+                    <PropertyRef Name="idDOrden" />
+                    <PropertyRef Name="idOrden" />
+                    <PropertyRef Name="idProducto" />
                 </Key>
-                <Property Name="idDOrden" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="idOrden" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="idProducto" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="cantidad" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="precioUnitario" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="moneda" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="idDOrden" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="idOrden" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="idProducto" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="cantidad" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="precioUnitario" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="moneda" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="estado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaCreacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="fechaModificacion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false" />
             </EntityType>
             <EntityType Name="HTcurc" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="Waers"/>
+                    <PropertyRef Name="Waers" />
                 </Key>
-                <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
-                <Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Long Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code" />
+                <Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Long Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
             </EntityType>
             <Association Name="PUNTOVENTATOORDEN" sap:content-version="1">
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.PUNTO_VENTA" Multiplicity="1" Role="FromRole_PUNTOVENTATOORDEN"/>
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDEN_COMPRA" Multiplicity="*" Role="ToRole_PUNTOVENTATOORDEN"/>
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.PUNTO_VENTA" Multiplicity="1" Role="FromRole_PUNTOVENTATOORDEN" />
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDEN_COMPRA" Multiplicity="*" Role="ToRole_PUNTOVENTATOORDEN" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_PUNTOVENTATOORDEN">
-                        <PropertyRef Name="idPVenta"/>
+                        <PropertyRef Name="idPVenta" />
                     </Principal>
                     <Dependent Role="ToRole_PUNTOVENTATOORDEN">
-                        <PropertyRef Name="idPVenta"/>
+                        <PropertyRef Name="idPVenta" />
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
             <Association Name="ORDENTODETALLEORDEN" sap:content-version="1">
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDEN_COMPRA" Multiplicity="1" Role="FromRole_ORDENTODETALLEORDEN"/>
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.DETALLE_ORDEN" Multiplicity="*" Role="ToRole_ORDENTODETALLEORDEN"/>
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDEN_COMPRA" Multiplicity="1" Role="FromRole_ORDENTODETALLEORDEN" />
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.DETALLE_ORDEN" Multiplicity="*" Role="ToRole_ORDENTODETALLEORDEN" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_ORDENTODETALLEORDEN">
-                        <PropertyRef Name="idOrden"/>
+                        <PropertyRef Name="idOrden" />
                     </Principal>
                     <Dependent Role="ToRole_ORDENTODETALLEORDEN">
-                        <PropertyRef Name="idOrden"/>
+                        <PropertyRef Name="idOrden" />
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
             <Association Name="CLIENTETOORDEN" sap:content-version="1">
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.CLIENTE" Multiplicity="1" Role="FromRole_CLIENTETOORDEN"/>
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDEN_COMPRA" Multiplicity="*" Role="ToRole_CLIENTETOORDEN"/>
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.CLIENTE" Multiplicity="1" Role="FromRole_CLIENTETOORDEN" />
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDEN_COMPRA" Multiplicity="*" Role="ToRole_CLIENTETOORDEN" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_CLIENTETOORDEN">
-                        <PropertyRef Name="idcliente"/>
+                        <PropertyRef Name="idcliente" />
                     </Principal>
                     <Dependent Role="ToRole_CLIENTETOORDEN">
-                        <PropertyRef Name="idCliente"/>
+                        <PropertyRef Name="idCliente" />
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
             <Association Name="CATEGORIATOPRODUCTO" sap:content-version="1">
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA" Multiplicity="1" Role="FromRole_CATEGORIATOPRODUCTO"/>
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO" Multiplicity="*" Role="ToRole_CATEGORIATOPRODUCTO"/>
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA" Multiplicity="1" Role="FromRole_CATEGORIATOPRODUCTO" />
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO" Multiplicity="*" Role="ToRole_CATEGORIATOPRODUCTO" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_CATEGORIATOPRODUCTO">
-                        <PropertyRef Name="idcategoria"/>
+                        <PropertyRef Name="idcategoria" />
                     </Principal>
                     <Dependent Role="ToRole_CATEGORIATOPRODUCTO">
-                        <PropertyRef Name="idCategoria"/>
+                        <PropertyRef Name="idCategoria" />
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
             <Association Name="PRODUCTOTODETALLEORDEN" sap:content-version="1">
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO" Multiplicity="*" Role="FromRole_PRODUCTOTODETALLEORDEN"/>
-                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.DETALLE_ORDEN" Multiplicity="*" Role="ToRole_PRODUCTOTODETALLEORDEN"/>
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO" Multiplicity="*" Role="FromRole_PRODUCTOTODETALLEORDEN" />
+                <End Type="ZSM_PROYECTOFIN_SORJUELA_SRV.DETALLE_ORDEN" Multiplicity="*" Role="ToRole_PRODUCTOTODETALLEORDEN" />
                 <ReferentialConstraint>
                     <Principal Role="FromRole_PRODUCTOTODETALLEORDEN">
-                        <PropertyRef Name="idProducto"/>
+                        <PropertyRef Name="idProducto" />
                     </Principal>
                     <Dependent Role="ToRole_PRODUCTOTODETALLEORDEN">
-                        <PropertyRef Name="idProducto"/>
+                        <PropertyRef Name="idProducto" />
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
             <EntityContainer Name="ZSM_PROYECTOFIN_SORJUELA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="CATEGORIASet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="PRODUCTOSet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="PUNTO_VENTASet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.PUNTO_VENTA" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="CLIENTESet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.CLIENTE" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="ORDEN_COMPRASet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDEN_COMPRA" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="DETALLE_ORDENSet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.DETALLE_ORDEN" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="HTcurcSet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.HTcurc" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="CATEGORIASet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+                <EntitySet Name="PRODUCTOSet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTO" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+                <EntitySet Name="PUNTO_VENTASet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.PUNTO_VENTA" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+                <EntitySet Name="CLIENTESet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.CLIENTE" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+                <EntitySet Name="ORDEN_COMPRASet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDEN_COMPRA" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+                <EntitySet Name="DETALLE_ORDENSet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.DETALLE_ORDEN" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+                <EntitySet Name="HTcurcSet" EntityType="ZSM_PROYECTOFIN_SORJUELA_SRV.HTcurc" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
                 <AssociationSet Name="PRODUCTOTODETALLEORDENSet" Association="ZSM_PROYECTOFIN_SORJUELA_SRV.PRODUCTOTODETALLEORDEN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="PRODUCTOSet" Role="FromRole_PRODUCTOTODETALLEORDEN"/>
-                    <End EntitySet="DETALLE_ORDENSet" Role="ToRole_PRODUCTOTODETALLEORDEN"/>
+                    <End EntitySet="PRODUCTOSet" Role="FromRole_PRODUCTOTODETALLEORDEN" />
+                    <End EntitySet="DETALLE_ORDENSet" Role="ToRole_PRODUCTOTODETALLEORDEN" />
                 </AssociationSet>
                 <AssociationSet Name="ORDENTODETALLEORDENSet" Association="ZSM_PROYECTOFIN_SORJUELA_SRV.ORDENTODETALLEORDEN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="ORDEN_COMPRASet" Role="FromRole_ORDENTODETALLEORDEN"/>
-                    <End EntitySet="DETALLE_ORDENSet" Role="ToRole_ORDENTODETALLEORDEN"/>
+                    <End EntitySet="ORDEN_COMPRASet" Role="FromRole_ORDENTODETALLEORDEN" />
+                    <End EntitySet="DETALLE_ORDENSet" Role="ToRole_ORDENTODETALLEORDEN" />
                 </AssociationSet>
                 <AssociationSet Name="CATEGORIATOPRODUCTOSet" Association="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIATOPRODUCTO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="CATEGORIASet" Role="FromRole_CATEGORIATOPRODUCTO"/>
-                    <End EntitySet="PRODUCTOSet" Role="ToRole_CATEGORIATOPRODUCTO"/>
+                    <End EntitySet="CATEGORIASet" Role="FromRole_CATEGORIATOPRODUCTO" />
+                    <End EntitySet="PRODUCTOSet" Role="ToRole_CATEGORIATOPRODUCTO" />
                 </AssociationSet>
                 <AssociationSet Name="CLIENTETOORDENSet" Association="ZSM_PROYECTOFIN_SORJUELA_SRV.CLIENTETOORDEN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="CLIENTESet" Role="FromRole_CLIENTETOORDEN"/>
-                    <End EntitySet="ORDEN_COMPRASet" Role="ToRole_CLIENTETOORDEN"/>
+                    <End EntitySet="CLIENTESet" Role="FromRole_CLIENTETOORDEN" />
+                    <End EntitySet="ORDEN_COMPRASet" Role="ToRole_CLIENTETOORDEN" />
                 </AssociationSet>
                 <AssociationSet Name="PUNTOVENTATOORDENSet" Association="ZSM_PROYECTOFIN_SORJUELA_SRV.PUNTOVENTATOORDEN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="PUNTO_VENTASet" Role="FromRole_PUNTOVENTATOORDEN"/>
-                    <End EntitySet="ORDEN_COMPRASet" Role="ToRole_PUNTOVENTATOORDEN"/>
+                    <End EntitySet="PUNTO_VENTASet" Role="FromRole_PUNTOVENTATOORDEN" />
+                    <End EntitySet="ORDEN_COMPRASet" Role="ToRole_PUNTOVENTATOORDEN" />
                 </AssociationSet>
+                <FunctionImport Name="CambiarEstadoI" ReturnType="ZSM_PROYECTOFIN_SORJUELA_SRV.CATEGORIA" EntitySet="CATEGORIASet" m:HttpMethod="POST">
+                    <Parameter Name="idcategoria" Type="Edm.String" Mode="In" />
+                </FunctionImport>
             </EntityContainer>
-            <atom:link rel="self" href="http://dsformacion.inetum.com:8080/sap/opu/odata/sap/ZSM_PROYECTOFIN_SORJUELA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
-            <atom:link rel="latest-version" href="http://dsformacion.inetum.com:8080/sap/opu/odata/sap/ZSM_PROYECTOFIN_SORJUELA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://dsformacion.inetum.com:8080/sap/opu/odata/sap/ZSM_PROYECTOFIN_SORJUELA_SRV/$metadata" />
+            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://dsformacion.inetum.com:8080/sap/opu/odata/sap/ZSM_PROYECTOFIN_SORJUELA_SRV/$metadata" />
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
